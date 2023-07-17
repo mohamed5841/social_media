@@ -4,7 +4,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
 
     // قراءة الملف JSON والتحقق من اسم المستخدم وكلمة المرور
-    $usersFile = file_get_contents("css/users.json");
+    $usersFile = file_get_contents("users.json");
     $usersData = json_decode($usersFile, true);
 
     $validUser = false;
