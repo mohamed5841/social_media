@@ -4,7 +4,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
 
     // قراءة الملف JSON والتحقق من اسم المستخدم وكلمة المرور
-    $usersFile = file_get_contents("users.json");
+    $usersFile = file_get_contents("css/users.json");
     $usersData = json_decode($usersFile, true);
 
     $validUser = false;
@@ -19,10 +19,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "تم تسجيل الدخول بنجاح";
         // قم بتوجيه المستخدم إلى صفحة الوجهة بعد تسجيل الدخول بنجاح
         // يمكنك استبدال "welcome.php" بالصفحة التي ترغب في توجيه المستخدم إليها
-       // header("Location: welcome.php");
-        //exit();
+        // header("Location: welcome.php");
+        // exit();
     } else {
-        $errorMessage = "invalid username or password";
+        $errorMessage = "اسم المستخدم أو كلمة المرور غير صحيحة";
+        header("Location: file1.html?error=$errorMessage");
+        exit();
     }
 }
 ?>
